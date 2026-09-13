@@ -1,4 +1,4 @@
-function [F] = full_plane_integration_polar_y0( x, y, z, psi, phi,  Py0, theta,  Nalpha , R, signo,  psi0, phi0 )
+function [F] = full_plane_integration_polar_y0( x, y, z, psi, phi,  Py0, theta,  Nalpha , R, signo,  psi0, phi0, show_legend )
 
  
  
@@ -30,14 +30,20 @@ F = zeros(Nx,Ny, Nz, Npsi, Nphi);
 
 
 
-barra = waitbar(0,'Reconstruction');
+barra = waitbar(0,'Planar integrartion');
 
 
 
 
 for i = 1 : Nx
+ 
+    
 
-    waitbar(i/Nx);
+    waitbar(gather(i/Nx), barra,sprintf('Planar integration y'));
+        if show_legend
+        fprintf('Planar integration %d%%\n', ...
+            round(100*i/Nx));
+    end
 
     for k = 1 : Ny
 
@@ -96,11 +102,13 @@ for i = 1 : Nx
          F(i, k, :, :,: ) = reshape(G0, 1 ,1, size(G0,1), size(G0,2), size(G0,3));
 
     end
+
+ 
+
 end
 
 F = squeeze(sum(sum(F,5),4))*dpsi0*dphi0; 
-
-close(barra)
+ close(barra) 
 
 
 end

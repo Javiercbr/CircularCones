@@ -27,7 +27,7 @@ rampa = abs(f_sample*v);             % filtro rampa
 H = 0.5 + 0.5*cos( 2*pi*v); % filtro de von Hann
 filtro = rampa.*H;          % filtro final
  
-size(filtro)
+ 
 
 filtro = repmat( filtro, Nvarphi, 1 );     % repite el array con el filtro
 filtro = squeeze(filtro);
@@ -39,7 +39,7 @@ gf = zeros(  Ntheta, Nvarphi, Ns);
 for i = 1 : Ntheta
 
 
-    waitbar(gather(i/Ntheta) );
+   
 
 
     a(: ,1:Ns) = g(i,:,:);

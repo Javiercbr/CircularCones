@@ -1,11 +1,11 @@
-function t = make_array(t_m, t_M, Nt, extra)
+function t = make_array(t_m, t_M, Nt,   config, extra)
 
     % Default value for the optional argument
-    if nargin < 4
+    if nargin < 5
         extra = false;
     end
 
-    [t_m, t_M, Nt] = type_and_device2(t_m, t_M, Nt);
+    [t_m, t_M, Nt] = type_and_device2(t_m, t_M, Nt, config);
 
     dt = (t_M - t_m) / (Nt - 1);
 

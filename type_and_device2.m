@@ -1,22 +1,21 @@
 function varargout = type_and_device2(varargin)
 
-n = nargin;
-varargout = cell(1,n);
+    config = varargin{end};
+    varargin(end) = [];
 
-for k = 1:n
+    n = nargin - 1;
+    varargout = cell(1,n);
 
-    tmp = varargin{k};
+    for k = 1:n
 
-    if ~isa(tmp,'single')
-        tmp = single(tmp);
+        tmp = single(varargin{k});
+
+        if config.gpu.useGPU
+            tmp = gpuArray(tmp);
+        end
+
+        varargout{k} = tmp;
+
     end
-
-    if ~isa(tmp,'gpuArray')
-        tmp = gpuArray(tmp);
-    end
-
-    varargout{k} = tmp;
-
-end
 
 end

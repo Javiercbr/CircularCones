@@ -1,4 +1,4 @@
-function [P] = CalcularP_z0_radon_clasica2(theta, varphi, s, gf_z0, psi, phi)
+function [P] = CalcularP_z0_radon_clasica2(theta, varphi, s, gf_z0, psi, phi, show_legend)
 
 
 dvarphi = varphi(2)- varphi(1);
@@ -8,10 +8,19 @@ varphi0  = -pi/2:  dvarphi0  :  pi/2;
 Ntheta = length(theta);
 
 P = zeros(Ntheta, length(psi), length(phi));
+
+
+barra = waitbar(0, 'Processing...');
  
 for i = 1 : Ntheta
 
-    waitbar(gather(i/Ntheta) );
+    waitbar(gather(i/Ntheta), barra,sprintf('Processing Pfz theta %d/%d', i, Ntheta));
+    
+    if show_legend
+        fprintf('Processing Pfz %d%%\n', ...
+            round(100*i/Ntheta));
+    end
+
 [  psi_, phi_, varphi_  ]= ndgrid(   psi, phi, varphi0 );
 
  
@@ -36,6 +45,6 @@ P(i,:,:)= Pz0_prima;
 
 end
 
-
+close(barra);
 
 end
