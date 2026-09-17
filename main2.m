@@ -64,11 +64,11 @@ theta = make_array(0, 2*pi, Ntheta, config, true);
 
 
         outputFolder = string(config.paths.input);
-        [gz0, varphi, s] = CircularCones_z0_v5(p,theta, Nvarphi, Ns, Nr, Npsi, R, x, y, z, rMax, J );
+        [gz0, varphi, s] = CircularCones_z0_v5(p,theta, Nvarphi, Ns, Nr, Npsi, R, x, y, z, rMax, J, show_legend );
         outputFile = fullfile(outputFolder, "gz0.mat");
         save(outputFile, 'gz0', 'theta', 'varphi', 's', 'R', 'x', 'y', 'z');
 
-        [gy0, varphi, s] = CircularCones_y0_v5(p,theta, Nvarphi, Ns, Nr, Npsi, R, x, y, z, rMax, J );
+        [gy0, varphi, s] = CircularCones_y0_v5(p,theta, Nvarphi, Ns, Nr, Npsi, R, x, y, z, rMax, J, show_legend );
         outputFile = fullfile(outputFolder, "gy0.mat");
         save(outputFile, 'gy0', 'theta', 'varphi', 's', 'R', 'x', 'y', 'z');
     end

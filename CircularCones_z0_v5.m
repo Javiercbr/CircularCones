@@ -1,4 +1,4 @@
-function [go,  varphi, s] = CircularCones_z0_v5(f, theta, Nvarphi, Ns, Nr, Npsi, R, x, y, z, rMax, J)
+function [go,  varphi, s] = CircularCones_z0_v5(f, theta, Nvarphi, Ns, Nr, Npsi, R, x, y, z, rMax, J, show_legend)
 
 
 % Calculates the 3D Radon transform of function
@@ -75,13 +75,21 @@ go = zeros(Ntheta, Nvarphi, Ns);
 
 
 
-%barra = waitbar(0,'Calculation of the projection');
-
+barra = waitbar(0,'Calculation of the cone projection');
+ 
 
 for k=1: Ntheta
 
 
-    waitbar(gather(k/Ntheta));
+    waitbar(gather(k/Ntheta), barra,sprintf('Calculation of the cone projection z %d/%d', k, Ntheta));
+    
+    if show_legend
+        fprintf('Calculation of the cone projection z %d%%\n', ...
+            round(100*k/Ntheta));
+    end
+
+
+   % waitbar(gather(k/Ntheta));
 
 g = 0;
 for m=1:Nr                % first integral (phi)
@@ -144,7 +152,7 @@ go(k,:,:) = g;
 
 end
 
-%close(barra)
+close(barra)
 
 end
 
