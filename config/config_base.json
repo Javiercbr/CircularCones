@@ -1,7 +1,7 @@
 {
 
     "enable_legend" : true,
-    "rec_fake": false,
+    "rec_fake": true,
     "data_stored": false,
  
 
@@ -9,12 +9,12 @@
         "R": 1
     },
     "sampling": {
-        "N": 32,
-        "M": 64,
+        "N": 64,
+        "M": 50,
         "Nr": 100,
         "J": 64,
         "Npsi0" : 67,
-        "Nphi0" : 101,
+        "Nphi0" : 32,
         "Ktheta": 2,
         "Kvarphi": 8,
         "Ks": 16,

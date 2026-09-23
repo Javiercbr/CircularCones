@@ -108,6 +108,10 @@ if config.rec_fake == false
 filename = fullfile(config.paths.input, ['gz0.mat']);
 load(filename);
 [ gf_z0 ] = filtrar4( varphi, theta, s, gz0 );
+
+%gf_z0(:,:,1:512) =0;
+
+
 [ varphi, theta, s, gf_z0 ] = type_and_device2(varphi, theta, s, gf_z0, config );
 [Pfz0] =  CalcularP_z0_radon_clasica2(  theta,  varphi, s, gf_z0,  psi,  phi, show_legend);
 Pfz0 = gather(Pfz0);
@@ -159,6 +163,8 @@ if config.rec_fake == false
 filename = fullfile(config.paths.input, ['gy0.mat']);
 load(filename);
 [ gf_y0 ] = filtrar4( varphi, theta, s, gy0 );
+%gf_y0(:,:,1:512) =0;
+
 [ varphi, theta, s, gf_y0 ] = type_and_device2(varphi, theta, s, gf_y0, config );
 [Pfy0] =  CalcularP_y0_radon_clasica2( theta,  varphi, s, gf_y0,  psi,  phi, show_legend);
 Pfy0 = gather(Pfy0);

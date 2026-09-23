@@ -1,0 +1,37 @@
+{
+
+    "enable_legend" : false,
+    "rec_fake": true,
+    "data_stored": false,
+ 
+
+    "geometry": {
+        "R": 1
+    },
+    "sampling": {
+        "N": 64,
+        "M": 50,
+        "Nr": 100,
+        "J": 64,
+        "Npsi0" : 67,
+        "Nphi0" : 32,
+        "Ktheta": 2,
+        "Kvarphi": 8,
+        "Ks": 16,
+        "Kpsi": 6,
+        "Kpsi00": 8,
+        "Kphi": 4,
+        "Kpsi": 6,
+        "Ktheta": 2,
+        "Kalpha": 2
+    },
+
+    "gpu": {
+        "useGPU": true,
+        "device": 1
+    },
+    "paths": {
+        "input": "data/input",
+        "output": "results"
+    }
+}
