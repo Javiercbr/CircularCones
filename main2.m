@@ -46,6 +46,13 @@ theta = make_array(0, 2*pi, Ntheta, config, true);
         y = make_array( 0.02, 2*xM, N, config);
         z = y;
 
+%         yM = R/(2*sqrt(3)) ;
+%         ym = R/50;
+%         L = yM - ym;
+%         x = make_array(-L/2, L/2, N, config);
+%         y = make_array( ym, yM, N, config);
+%         z = y;
+
         [rMax] = get_max_r(theta, x, y, z, R);
 
         Nr =  config.sampling.Nr;

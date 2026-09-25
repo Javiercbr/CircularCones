@@ -20,7 +20,7 @@ P = 0;
 
 
 for m=1:Nr                
-    m
+    
  waitbar(gather(m/Nr));
 
  
